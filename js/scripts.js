@@ -100,8 +100,8 @@ generatedButton.addEventListener('click',
                             element.classList.add('bomb');
                             element.innerHTML = '';
                             element.innerHTML = '<i class="fa-solid fa-bomb"></i>';
-                            // alert('Hai colpito la bomba!!!! hai cliccato:'+ numberCellsClick + 'volte prima di finire' )
-                            // breakPoint = true;
+                            alert('Hai colpito la bomba!!!! hai cliccato:'+ numberCellsClick + 'volte prima di finire' )
+                            breakPoint = true;
                             console.log('numberBomb' , numberBomb)
                             
                         }
