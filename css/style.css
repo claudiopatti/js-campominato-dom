@@ -1,0 +1,63 @@
+/* 
+reset  
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 
+general 
+*/
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* 
+header  
+*/
+
+/* 
+main  
+*/
+
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid-container > * {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgreen;
+    border: 1px solid red;
+    text-align: center;
+}
+
+#grid-container > .active{
+    background-color: lightcoral;
+    border-color:  green;
+}
+
+#grid-container > .easy{
+    width: 100px;
+    height: 100px;
+
+}
+
+#grid-container > .medium{
+    width: calc(1000px / 9);
+    height: calc(1000px / 9);
+}
+
+#grid-container > .hard{
+    width: calc(1000px / 7);
+    height: calc(1000px / 7);
+}
