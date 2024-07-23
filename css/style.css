@@ -42,8 +42,13 @@ main
 }
 
 #grid-container > .active{
-    background-color: lightcoral;
+    background-color: lightskyblue;
     border-color:  green;
+}
+
+#grid-container > .bomb{
+    background-color: red;
+    border-color:  black;
 }
 
 #grid-container > .easy{

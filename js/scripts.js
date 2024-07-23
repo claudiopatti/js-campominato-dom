@@ -50,6 +50,9 @@ generatedButton.addEventListener('click',
             const element = document.createElement('div');
             element.innerHTML = (i);
 
+            console.log('element.innerHTML', element.innerHTML, typeof element.innerHTML)
+            
+
             if (numberCells == 100) {
                 element.classList.add('easy');   
             }
@@ -66,7 +69,14 @@ generatedButton.addEventListener('click',
 
             element.addEventListener('click',
                 function () {
+                    if  (!numberBomb.includes(element.innerHTML)){
+                        element.classList.add('bomb');
+                        console.log('numberBomb' , numberBomb)
+                    }
+                    
                     element.classList.add('active');
+                    console.log('element.innerHTML' , element.innerHTML)
+                    
                 }
             )
         }
