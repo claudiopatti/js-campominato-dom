@@ -1,5 +1,11 @@
 const generatedButton = document.getElementById('generateButton');
 
+const numberBomb = [];
+
+let numberCells = 100
+
+let element = '';
+
 
 
 generatedButton.addEventListener('click', 
@@ -19,6 +25,8 @@ generatedButton.addEventListener('click',
         else if (levelDifficulty.value == 3) {
             numberCells = 49
         }
+
+        
 
         
         gridContainer.innerHTML = '';
@@ -45,12 +53,22 @@ generatedButton.addEventListener('click',
             return Math.floor(Math.random() * (max - min + 1) ) + min;
         }
 
+        let clickCells = numberCells - 16
+            console.log('clickCells', clickCells)
+
+        let numberCellsClick = 0
+
+        // let i = 0;
+        // while (i <= clickCells) {
+        //     console.log('numberCellsClick', numberCellsClick, typeof numberCellsClick)
+        //     i++;
+        // }
 
         for (let i = 1; i <= numberCells; i++) {
-            const element = document.createElement('div');
+            let element = document.createElement('div');
             element.innerHTML = (i);
 
-            console.log('element.innerHTML', element.innerHTML, typeof element.innerHTML)
+
             
 
             if (numberCells == 100) {
@@ -65,20 +83,69 @@ generatedButton.addEventListener('click',
 
             
 
+            
+
             gridContainer.append(element);
 
             element.addEventListener('click',
                 function () {
-                    if  (!numberBomb.includes(element.innerHTML)){
+                    
+                    if  (numberBomb.includes(i)){
                         element.classList.add('bomb');
+                        alert('Hai colpito la bomba!!!!'+'hai cliccato:'+ numberCellsClick + 'volte prima di finire' )
                         console.log('numberBomb' , numberBomb)
                     }
-                    
-                    element.classList.add('active');
-                    console.log('element.innerHTML' , element.innerHTML)
-                    
+                    else {
+                        element.classList.add('active');
+                        
+                        numberCellsClick = numberCellsClick + 1;
+                        console.log('numberCellsClick',numberCellsClick, typeof numberCellsClick)
+
+                        if (numberCellsClick == clickCells) {
+                            alert('Hai vinto, a culo ma hai vintooooo!!!!! hai cliccato:'+ numberCellsClick)
+                        }
+                    }
                 }
             )
         }
+        
 });
+
+ // array bomba
+ 
+
+//  for (i = 1; i <= 16; i++) {
+//      // const randomNumberBomb = getRndInteger(1,numberCells);
+
+//      // numberBomb.push(randomNumberBomb);
+
+//      let randomNumberBomb;
+//      do {
+//          randomNumberBomb = getRndInteger(1,numberCells);
+//          console.log(randomNumberBomb);
+//      } while (numberBomb.includes(randomNumberBomb))
+
+//      numberBomb.push(randomNumberBomb);
+//  }
+//  console.log('numberBomb', numberBomb, typeof numberBomb);
+
+//  function getRndInteger(min, max) {
+//      return Math.floor(Math.random() * (max - min + 1) ) + min;
+//  }
     
+
+//  element.addEventListener('click',
+//     function () {
+        
+//         if  (numberBomb.includes(element.innerHTML)){
+//             element.classList.add('bomb');
+//             console.log('numberBomb' , numberBomb)
+//         }
+//         else {
+//             element.classList.add('active');
+//         }
+        
+//         console.log('element.innerHTML' , element.innerHTML)
+        
+//     }
+// )
