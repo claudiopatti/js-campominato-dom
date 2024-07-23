@@ -39,6 +39,8 @@ main
     background-color: lightgreen;
     border: 1px solid red;
     text-align: center;
+    cursor: pointer;
+    user-select: none;
 }
 
 #grid-container > .active{

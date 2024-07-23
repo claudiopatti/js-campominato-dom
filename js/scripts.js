@@ -6,7 +6,7 @@ let numberCells = 100
 
 let element = '';
 
-
+let breakPoint = false
 
 generatedButton.addEventListener('click', 
     function () {
@@ -87,22 +87,40 @@ generatedButton.addEventListener('click',
 
             gridContainer.append(element);
 
+            // const resultWinOrLos = document.getElementById('result');
+
+           let cliccati = [];
+
             element.addEventListener('click',
                 function () {
-                    
-                    if  (numberBomb.includes(i)){
-                        element.classList.add('bomb');
-                        alert('Hai colpito la bomba!!!!'+'hai cliccato:'+ numberCellsClick + 'volte prima di finire' )
-                        console.log('numberBomb' , numberBomb)
-                    }
-                    else {
-                        element.classList.add('active');
-                        
-                        numberCellsClick = numberCellsClick + 1;
-                        console.log('numberCellsClick',numberCellsClick, typeof numberCellsClick)
-
-                        if (numberCellsClick == clickCells) {
-                            alert('Hai vinto, a culo ma hai vintooooo!!!!! hai cliccato:'+ numberCellsClick)
+                    // cliccati.push(element.innerHTML)
+                    // console.log('element.value', element.innerHTML, typeof element.value);
+                    if (breakPoint == false) {
+                        if  (numberBomb.includes(i)){
+                            element.classList.add('bomb');
+                            element.innerHTML = '';
+                            element.innerHTML = '<i class="fa-solid fa-bomb"></i>';
+                            // alert('Hai colpito la bomba!!!! hai cliccato:'+ numberCellsClick + 'volte prima di finire' )
+                            // breakPoint = true;
+                            console.log('numberBomb' , numberBomb)
+                            
+                        }
+                        if (!cliccati.includes(element.innerHTML) )  {
+                            cliccati.push(element.innerHTML)
+                            console.log('element.value', element.innerHTML, typeof element.value);
+                            element.classList.add('active');
+                            
+                            numberCellsClick = numberCellsClick + 1;
+                            console.log('numberCellsClick',numberCellsClick, typeof numberCellsClick)
+    
+                            // if (numberCellsClick == clickCells) {
+                            //     breakPoint = true;
+                            //    alert('Hai vinto, a culo ma hai vintooooo!!!!! hai cliccato:'+ numberCellsClick);
+                            // }
+                        }
+                        if  (numberCellsClick == clickCells) {
+                            breakPoint = true;
+                           alert('Hai vinto, a culo ma hai vintooooo!!!!! hai cliccato:'+ numberCellsClick);
                         }
                     }
                 }
