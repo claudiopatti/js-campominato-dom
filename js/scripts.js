@@ -68,6 +68,9 @@ generatedButton.addEventListener('click',
             let element = document.createElement('div');
             element.innerHTML = (i);
 
+            let numberCell = parseInt(element.innerHTML);
+            console.log('numberCell', numberCell)
+
 
             
 
@@ -96,7 +99,7 @@ generatedButton.addEventListener('click',
                     // cliccati.push(element.innerHTML)
                     // console.log('element.value', element.innerHTML, typeof element.value);
                     if (breakPoint == false) {
-                        if  (numberBomb.includes(i)){
+                        if  (numberBomb.includes(numberCell)){
                             element.classList.add('bomb');
                             element.innerHTML = '';
                             element.innerHTML = '<i class="fa-solid fa-bomb"></i>';
